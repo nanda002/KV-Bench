@@ -1,0 +1,35 @@
+start_time_ns=1777249338179865890
+[RUN] Starting plain_benchmark at Mon 27 Apr 2026 12:22:18 AM UTC
+Starting experiments ...
+[INFO] Requested fs_uri = zenfs://dev:nvme0n1
+Loading workload ...
+Load complete ...
+Loading workload ...
+Load complete ...
+=========>10%<==========>20%<==========>30%<==========>40%<==========>50%<==========>60%<==========>70%<==========>80%<==========>90%<==========>OK!
+=========>10%<==========>20%<==========>30%<==========>40%<==========>50%<==========>60%<==========>70%<==========>80%<==========>90%<==========>OK!
+point query latency: 0.562933 (ms/query)
+avg operation latency: 0.609775 (ms/ops)
+OK
+End of experiment run: 1
+
+
+===== End of all experiments in 2715599.94ms !! ===== 
+
+-----LSM state-----
+               T               P               B               E               M
+            2.00             128             128             128         2097152
+
+----- Query summary -----
+              #I              #U              #D              #R              #Q              #Z              #S          #TOTAL
+         1500907          749093          300000               0               0          450000               0         3000000
+               I               U               D               R               Q               Z               S           TOTAL
+       911187.22       511060.74       153757.69            0.00          0.0000     253320.0387            0.00      1829325.69
+----- Latency(ms/op) -----
+           avg_I           avg_U           avg_D           avg_R           avg_Q           avg_Z           avg_S       avg_query
+            0.61            0.68            0.51            -nan            -nan          0.5629            -nan            0.61
+----- Throughput(op/ms) -----
+           avg_I           avg_U           avg_D           avg_R           avg_Q           avg_Z           avg_S       avg_query
+            1.65            1.47            1.95            -nan            -nan          1.7764            -nan            1.64
+end_time_ns=1777255708444968932
+[RUN] Finished plain_benchmark at Mon 27 Apr 2026 02:08:28 AM UTC
