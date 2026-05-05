@@ -98,6 +98,12 @@ sudo ./plain_benchmark -E 128 --dd \
 ---
 ## Testing
 
+First, go to the directory where the scripts reside:
+
+```bash
+cd kv-bench-rocksdb-example
+```
+
 For Garbage Collection:
 
 ```bash
