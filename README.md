@@ -63,14 +63,12 @@ export rocksdbpath=/absolute/path/to/rocksdb
 ### 2. ZenFS util + linker patches + benchmark binary
 
 ZenFS ships under `plugin/zenfs`. The benchmark needs **whole-archive** linking for `librocksdb.a` and explicit **libzbd** linkage.
+*Make sure ZenFS is built in RocksDB.
 
 bash
 ```
-cd plugin/zenfs/util
-make
+cd kv-bench-rocksdb-example
 ```
-
-Patch the Makefile (run from `plugin/zenfs/util` with `rocksdbpath` exported as above):
 
 ```bash
 sed -i "s|\${rocksdbpath}/librocksdb.a|-Wl,--whole-archive \${rocksdbpath}/librocksdb.a -Wl,--no-whole-archive|g" Makefile
@@ -109,6 +107,7 @@ For Garbage Collection:
 ```bash
 ./application-level-experiments/kv-bench_scripts/test_ft_kv.sh
 ```
+
 For Dummy Pages:
 ```bash
 ./application-level-experiments/kv-bench_scripts/test_ft_pages.sh
