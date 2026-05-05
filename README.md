@@ -23,7 +23,7 @@ sudo apt update
 sudo apt install -y libzbd-dev nvme-cli cmake libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev build-essential
 ```
 
-#### GCC 11 as default
+**GCC 11 as default**
 
 If GCC 11 is not already the default `gcc` / `g++`:
 
@@ -60,7 +60,7 @@ cd kv-bench
 export rocksdbpath=/absolute/path/to/rocksdb
 ```
 
-### ZenFS util + linker patches + benchmark binary
+### 2. ZenFS util + linker patches + benchmark binary
 
 ZenFS ships under `plugin/zenfs`. The benchmark needs **whole-archive** linking for `librocksdb.a` and explicit **libzbd** linkage.
 
@@ -82,9 +82,7 @@ make plain_benchmark
 
 You should end up with a `plain_benchmark` binary in this tree (exact path follows your Makefile output).
 
----
-
-## Run the benchmark Example
+## 3. Run the benchmark Example
 
 Use **sudo** only if raw NVMe/ZNS access requires it. Replace paths and device names with yours.
 
@@ -92,10 +90,10 @@ Use **sudo** only if raw NVMe/ZNS access requires it. Replace paths and device n
 
 ```bash
 sudo ./plain_benchmark -E 128 --dd \
-  --iwp /home/femu/rocksdbTest/workloads/ingestion.txt \
-  --qwp /home/femu/rocksdbTest/workloads/ingestion.txt \
+  --iwp /..path/rocksdbTest/workloads/ingestion.txt \
+  --qwp /..path/rocksdbTest/workloads/ingestion.txt \
   --dw --dr \
-  --fs_uri="zenfs://dev:nvme0n1"
+  --fs_uri="zenfs://dev:nvmeXnX"
 ```
 
 #### Arguments (quick reference)
@@ -110,7 +108,7 @@ sudo ./plain_benchmark -E 128 --dd \
 | `--dr` | Enable **data read** phase / path as defined by KV-Bench. |
 | `--fs_uri` | ZenFS backing device, e.g. `zenfs://dev:<zns-namespace>` |
 
-Use `nvme list` / `nvme zns ...` as appropriate to confirm the correct ZNS device name (often `nvmeXnY`).
+Use `nvme list` / `nvme zns ...` as appropriate to confirm the correct ZNS device name.
 
 ---
 
