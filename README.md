@@ -108,7 +108,7 @@ For Dummy Pages:
 ./application-level-experiments/kv-bench_scripts/test_ft_pages.sh
 ```
 
-For latency and bandwidth
+For Latency and Bandwidth
 ```bash
 ```
 
