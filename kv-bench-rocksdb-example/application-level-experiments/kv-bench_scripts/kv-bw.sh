@@ -1,8 +1,9 @@
 #!/bin/bash
+#To extract metrics from KVBench logs and compute bandwidth
 
 RESULT_DIR="./results"
 OUTPUT="$RESULT_DIR/64_final_results.csv"
-ENTRY_SIZE=64
+ENTRY_SIZE=1024
 TOTAL_OPS=3000000
 
 echo "================================================="

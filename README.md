@@ -110,6 +110,7 @@ For Dummy Pages:
 
 For Latency and Bandwidth
 ```bash
+./application-level-experiments/kv-bench_scripts/kv-bw.sh
 ```
 
 ---
