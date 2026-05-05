@@ -95,12 +95,30 @@ sudo ./plain_benchmark -E 128 --dd \
   --dw --dr \
   --fs_uri="zenfs://dev:nvmeXnX"
 ```
+---
+## Testing
+
+For Garbage Collection:
+
+```bash
+./application-level-experiments/kv-bench_scripts/test_ft_kv.sh
+```
+For Dummy Pages:
+```bash
+./application-level-experiments/kv-bench_scripts/test_ft_pages.sh
+```
+
+For latency and bandwidth
+```bash
+```
+
+---
 
 #### Arguments (quick reference)
 
 | Flag | Meaning |
 |------|---------|
-| `-E 128` | Entry size **128** (bytes; confirm against your workload generator). |
+| `-E 1024` | Entry size **1024** (bytes; confirm against your workload generator). |
 | `--dd` | **Direct I/O** for data path. |
 | `--iwp` | **Ingestion** workload profile path. |
 | `--qwp` | **Query** workload profile path. |
