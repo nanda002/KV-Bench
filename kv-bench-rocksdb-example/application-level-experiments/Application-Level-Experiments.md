@@ -5,7 +5,7 @@ This folder contains the scripts, results, and plotting code used to evaluate ZN
 ## IMPORTANT SETUP NOTE
 
 1. For Installing RocksDB: [RocksDB](https://github.com/cbmary27/RocksDB-ZenFS/blob/main/README.md)
-2. For Installing KVBench: 
+2. For Installing KVBench: [KVBench](https://github.com/nanda002/KV-Bench.git)
 
 A custom `zns.c` file is included in this repository.
 
