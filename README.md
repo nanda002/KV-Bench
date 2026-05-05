@@ -12,25 +12,23 @@ This repository contains the setup and execution pipeline for running KVBench wo
 
 | Item | Notes |
 |------|--------|
-| **OS** | Linux (Ubuntu 20.04 / 22.04 recommended) |
-| **Compiler** | GCC / G++ **11.x** |
-| **Packages** | `libzbd`, `nvme-cli`, `cmake`, `libgflags-dev`, `libsnappy-dev`, `zlib1g-dev`, `libbz2-dev`, `liblz4-dev`, `libzstd-dev` |
+| *OS* | Linux (Ubuntu 20.04 / 22.04 recommended) |
+| *Compiler* | GCC / G++ **11.x** |
+| *Packages* | `libzbd`, `nvme-cli`, `cmake`, `libgflags-dev`, `libsnappy-dev`, `zlib1g-dev`, `libbz2-dev`, `liblz4-dev`, `libzstd-dev` |
 
 Install dependencies (example on Ubuntu):
 
 ```bash
 sudo apt update
-sudo apt install -y libzbd-dev nvme-cli cmake libgflags-dev libsnappy-dev \
-  zlib1g-dev libbz2-dev liblz4-dev libzstd-dev build-essential
+sudo apt install -y libzbd-dev nvme-cli cmake libgflags-dev libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev build-essential
 ```
 
-### GCC 11 as default
+#### GCC 11 as default
 
 If GCC 11 is not already the default `gcc` / `g++`:
 
 ```bash
 sudo apt install -y gcc-11 g++-11
-
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-11 100
 sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-11 100
 ```
@@ -50,13 +48,14 @@ cd KV-Bench
 
 ### 1. RocksDB (static library)
 If Rocksdb not already installed
-## Build
+#### Build
 Download, build and install rocksdb from the [README](https://github.com/cbmary27/RocksDB-ZenFS/blob/main/README.md) for instructions
 
-## Link Rocksdb if already installed
+#### Link Rocksdb if already installed
 
 If you already have RocksDB installed, you can link against it directly instead of rebuilding:
-bash ```
+bash 
+```
 cd kv-bench
 export rocksdbpath=/absolute/path/to/rocksdb
 ```
@@ -65,7 +64,8 @@ export rocksdbpath=/absolute/path/to/rocksdb
 
 ZenFS ships under `plugin/zenfs`. The benchmark needs **whole-archive** linking for `librocksdb.a` and explicit **libzbd** linkage.
 
-```bash
+bash
+```
 cd plugin/zenfs/util
 make
 ```
@@ -88,7 +88,7 @@ You should end up with a `plain_benchmark` binary in this tree (exact path follo
 
 Use **sudo** only if raw NVMe/ZNS access requires it. Replace paths and device names with yours.
 
-### Example
+#### Example
 
 ```bash
 sudo ./plain_benchmark -E 128 --dd \
@@ -98,7 +98,7 @@ sudo ./plain_benchmark -E 128 --dd \
   --fs_uri="zenfs://dev:nvme0n1"
 ```
 
-### Arguments (quick reference)
+#### Arguments (quick reference)
 
 | Flag | Meaning |
 |------|---------|
