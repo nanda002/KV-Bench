@@ -49,18 +49,19 @@ cd KV-Bench
 ## Build pipeline
 
 ### 1. RocksDB (static library)
+If Rocksdb not already installed
+## Build
+Download, build and install rocksdb from the [README](https://github.com/cbmary27/RocksDB-ZenFS/blob/main/README.md) for instructions
 
-```bash
-cd rocksdb
-make clean
-DEBUG_LEVEL=0 make -j"$(nproc)" static_lib
-export rocksdbpath="$(pwd)"
-cd ..
+## Link Rocksdb if already installed
+
+If you already have RocksDB installed, you can link against it directly instead of rebuilding:
+bash ```
+cd kv-bench
+export rocksdbpath=/absolute/path/to/rocksdb
 ```
 
-Remember `rocksdbpath`; the ZenFS util Makefile needs it.
-
-### 2. ZenFS util + linker patches + benchmark binary
+### ZenFS util + linker patches + benchmark binary
 
 ZenFS ships under `plugin/zenfs`. The benchmark needs **whole-archive** linking for `librocksdb.a` and explicit **libzbd** linkage.
 
@@ -83,7 +84,7 @@ You should end up with a `plain_benchmark` binary in this tree (exact path follo
 
 ---
 
-## Run the benchmark
+## Run the benchmark Example
 
 Use **sudo** only if raw NVMe/ZNS access requires it. Replace paths and device names with yours.
 
