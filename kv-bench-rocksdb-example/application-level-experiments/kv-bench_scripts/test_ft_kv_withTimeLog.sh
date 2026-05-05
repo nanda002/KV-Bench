@@ -1,6 +1,5 @@
 #!/bin/bash
 set -euo pipefail
-#THRESHOLDS="40"
 AUX_PATH="/home/femu/RocksDBFile/zenfs_aux"
 DB_BENCH="/home/femu/RocksDBFile/rocksdb/db_bench"
 FS_URI="zenfs://dev:nvme0n1"
@@ -25,6 +24,7 @@ mkdir -p "$RESULT_DIR"
 
 THRESHOLDS=$(seq 0 10 100)
 #THRESHOLDS=
+#THRESHOLDS="40"
 
 for FT in $THRESHOLDS; do
 

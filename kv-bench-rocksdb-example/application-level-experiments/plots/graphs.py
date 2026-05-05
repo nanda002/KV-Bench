@@ -22,6 +22,7 @@ space_amp = [
     1.343, 1.789, 1.823, 1.882, 1.844, 1.765
 ]
 
+
 fig, ax1 = plt.subplots(figsize=(6,4))
 
 # Left axis
